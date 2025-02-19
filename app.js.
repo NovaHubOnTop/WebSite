@@ -1,6 +1,0 @@
-// Basic example of a script to log a message when a button is clicked
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("Welcome to My Roblox Hub!");
-
-  // You can add more interactions here later, such as toggling features
-});
