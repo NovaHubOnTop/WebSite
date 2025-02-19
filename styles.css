@@ -1,33 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
-}
+const express = require("express");
+const bodyParser = require("body-parser");
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-}
+const app = express();
+const port = 3000;
 
-h1 {
-    font-size: 2em;
-}
+// Parse JSON request bodies
+app.use(bodyParser.json());
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
+// Start an app (Roblox or Auto Clicker)
+app.post("/startApp", (req, res) => {
+  const { name } = req.query;
+  console.log(`Starting ${name}...`);
+  // Here, you would add the logic to start the app (e.g., trigger a VM or container)
+  res.json({ message: `${name} started successfully!` });
+});
 
-button:hover {
-    background-color: #45a049;
-}
+// Stop the app
+app.post("/stopApp", (req, res) => {
+  console.log("Stopping app...");
+  // Add logic to stop the app (e.g., shutdown VM or container)
+  res.json({ message: "App stopped successfully!" });
+});
 
-#gameContainer {
-    margin-top: 20px;
-}
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
